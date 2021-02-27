@@ -1,5 +1,7 @@
 # Contentorização Podman de um servidor PostgreSQL+PostGIS+pgRouting e com pgAdmin 4
 
+Criação de containers Docker / Podman num sistema operativo Fedora.
+
 ## Imagem PostgreSQL+Postgis
 
 Para criar imagem PostgreSQL + PostGIS (12.3 + 3.0),  construímos primeiro este ficheiro chamado *Dockerfile*:
