@@ -39,7 +39,7 @@ ATENÇÃO: Ao contrário do que acontece com Docker, com o **podman** (Fedora/Re
 
 Convém separar por versão, para ser possível ter containers a correr diferentes versões, se necessário, nomeadamente em momentos de upgrading de versão (Postgresql ou PostGIS).
 
-Nesta caso temos, para a versão PG 12 e PostGIS 3 o caminho:
+Neste caso temos, para a versão PG 12.3 e PostGIS 3 o caminho:
 
     <dir.local>/postgresqlData/12-3
 
@@ -64,17 +64,19 @@ sudo podman run \
     --detach <localuser>/postgis
 ```  
 
-Onde se refere **podman** poderia estar **docker**, noutro sistema operativo.  
+Onde se refere **podman** poderia estar **docker**. 
+
+O *container* desta forma iniciado vai disponibilizar o *listener* do PostgreSQL na porta TCP 5432 do sistema hospedeiro (*host*), como esperado.
 
 ## PgAdmin contentorizado
 
 A melhor solução para manter pgAdmin é também através da contentorização.
 
-Começamos por baixar a imagem preferida:
+Comecei por baixar a imagem da minha preferência:
 
     docker pull dpage/pgadmin4
 
-Criamos depois o contentor respetivo com:
+Criei depois o contentor respetivo com:
 ```
 sudo podman run --name pgadmin4 \
 	--rm \
@@ -109,6 +111,6 @@ Caminho físico correspondente será:
 
     <dir.local>/postgresqlData/12-3/tablespaces/<tablespace>
 
-Estas diretorias devem ter group:owner igual a:
+No Fedora, estas diretorias devem ter group:owner igual a:
 
     systemd-timesync:root
