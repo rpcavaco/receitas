@@ -6,7 +6,7 @@ Criação de containers Docker / Podman num sistema operativo Fedora.
 
 Para criar imagem PostgreSQL + PostGIS (12.3 + 3.0),  construímos primeiro este ficheiro chamado *Dockerfile*:
 
-```
+```dockerfile
 FROM postgres:12.3
 
 LABEL maintainer="<localuser>, after PostGIS Project dockerfile"
