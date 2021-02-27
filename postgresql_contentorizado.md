@@ -2,7 +2,7 @@
 
 ## Imagem PostgreSQL+Postgis
 
-Para criar imagem PostgreSQL + PostGIS (12.3 + 3.0),  construímos primeiro esta Dockerfile:
+Para criar imagem PostgreSQL + PostGIS (12.3 + 3.0),  construímos primeiro este ficheiro chamado *Dockerfile*:
 
 ```dockerfile
 FROM postgres:12.3
@@ -24,10 +24,10 @@ RUN apt-get update \
 
 As instruções foram parcialmente copiadas da imagem Docker **postgis/postgis**. Foi forçada a versão 12.3 do PostgreSQL e foram removidos os comandos de inicialização da base de dados *template_postgis*, desnecessária.
 
-Para fazer o **build** da imagem:
+Para fazer o **build** da imagem, atribuindo-lhe duas tags, *<localuser>/postgis:12-3.0* e *<localuser>/postgis:latest*:
 
 ```
-sudo podman build -t <localuser>/postgis:12-3.0 -t <localuser>/postgis:latest 12-3.0
+sudo podman build -t <localuser>/postgis:12-3.0 -t <localuser>/postgis:latest -f ./Dockerfile
 ```
 
 ATENÇÃO: Ao contrário do que acontece com Docker, com o **podman** (Fedora/Red Hat/CentOS 7 com Extras), as imagens que irão aceder a recursos de acesso privilegiado tem de ser manipuladas pelo user **root**.
@@ -91,7 +91,7 @@ O comando ```sudo podman ps``` retorna:
 
 | CONTAINER ID | IMAGE                             | COMMAND     | CREATED        | STATUS               | PORTS                  | NAMES      |
 | ------------ | --------------------------------- | ----------- | -------------- | -------------------- | ---------------------- | ---------- |
-| d9e305482ec6 | localhost/<localuser>/postgis:12-3.0 | postgres    | 51 minutes ago | Up 51 minutes ago    | 0.0.0.0:5432->5432/tcp | pgcont12-3 |
+| d9e305482ec6 | localhost/&lt;localuser&gt;/postgis:12-3.0 | postgres    | 51 minutes ago | Up 51 minutes ago    | 0.0.0.0:5432->5432/tcp | pgcont12-3 |
 | d26721a68705 | docker.io/dpage/pgadmin4:latest |  | 5 hours ago | Up 5 hours ago | 0.0.0.0:5050->80/tcp | pgadmin4 |
 
 
