@@ -56,7 +56,7 @@ sudo podman run \
     --name pgcont12-3 \
     --rm \
     -p 5432:5432 \
-    -e "POSTGRES_PASSWORD=postgres" \
+    -e "POSTGRES_PASSWORD=******" \
     -e "PGDATA=/var/lib/postgresql/data/pgdata" \
     -v <dir.local>/postgresqlData/12-3:/var/lib/postgresql/data \
     --detach <localuser>/postgis
