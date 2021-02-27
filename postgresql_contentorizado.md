@@ -6,7 +6,7 @@ Criação de containers Docker / Podman num sistema operativo Fedora.
 
 Para criar imagem PostgreSQL + PostGIS (12.3 + 3.0),  construímos primeiro este ficheiro chamado *Dockerfile*:
 
-```dockerfile
+```
 FROM postgres:12.3
 
 LABEL maintainer="<localuser>, after PostGIS Project dockerfile"
@@ -66,7 +66,22 @@ sudo podman run \
 
 Onde se refere **podman** poderia estar **docker**. 
 
-O *container* desta forma iniciado vai disponibilizar o *listener* do PostgreSQL na porta TCP 5432 do sistema hospedeiro (*host*), como esperado.
+O *container* desta forma iniciado vai disponibilizar o *listener* do PostgreSQL na porta TCP 5432 do sistema hospedeiro (*host*), como esperado. 
+Para lançar múltiplos *containers* destes, teríamos de alterar a linha do script anterior ...
+
+```
+    -p 5432:5432 \
+```  
+
+para
+
+
+```
+    -p 5433:5432 \
+```   
+
+para que um novo *container* oferecesse o seu serviço na porta 5433.
+
 
 ## PgAdmin contentorizado
 
