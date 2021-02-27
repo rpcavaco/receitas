@@ -81,6 +81,15 @@ para
 ```   
 
 para que um novo *container* oferecesse o seu serviço na porta 5433.
+Teriamos também de alterar as linhas 
+
+```
+    --name pgcont12-3 \
+ ...
+    -v <dir.local>/postgresqlData/12-3:/var/lib/postgresql/data \ 
+```
+
+... para dar um nome diferente e uma localização diferente para os dados no dísco do *host*.
 
 
 ## PgAdmin contentorizado
